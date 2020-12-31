@@ -13,7 +13,7 @@ pip install colorprint3
 ```
 
 ## Usage
-Same as build-in ```print()``` function but have 2 more input ```fg_color``` and ```bg_color```.
+Same as build-in ```print()``` function but have 2 more arguments ```fg_color``` and ```bg_color```.
 
 ```python
 colorprint3.print(*word,sep=None,end=None,file=None,flush=True,fg_color=None,bg_color=None)
