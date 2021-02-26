@@ -13,13 +13,18 @@ pip install colorprint3
 ```
 
 ## Usage
-Same as build-in ```print()``` function but have 2 more arguments ```fg_color``` and ```bg_color```.
+Same as build-in ```print()``` function but have a few more arguments : ```fg_color```, ```bg_color``` and ```style```.
 
 ```python
 colorprint3.print(*word,sep=None,end=None,file=None,flush=True,fg_color=None,bg_color=None)
 ```
-Avalable Colors : ```black```, ```red```, ```green```, ```yellow```, ```blue```, ```magenta```, ```cyan```, ```white```, ```s_black```, ```s_red```, ```s_green```, ```s_yellow```, ```s_blue```, ```s_magenta```, ```s_cyan```, ```s_white```.
+```fg_color``` values : ```black```, ```red```, ```green```, ```yellow```, ```blue```, ```magenta```, ```cyan```, ```white```, ```s_black```, ```s_red```, ```s_green```, ```s_yellow```, ```s_blue```, ```s_magenta```, ```s_cyan```, ```s_white``` & Custom colors.
 
+```bg_color``` values : ```black```, ```red```, ```green```, ```yellow```, ```blue```, ```magenta```, ```cyan```, ```white```, ```s_black```, ```s_red```, ```s_green```, ```s_yellow```, ```s_blue```, ```s_magenta```, ```s_cyan```, ```s_white``` & Custom colors.
+
+```style``` values : ```bold```, ```underline```.
+
+Custom color format : ```[r,g,b]```
 ## Contributing
 Please open an issue to report a bug or give suggestion. Feel free to fork this project.
 
