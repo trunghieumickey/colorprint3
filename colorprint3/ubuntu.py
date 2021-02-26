@@ -1,6 +1,6 @@
 from builtins import print as pythonprint
 from os import system
-def print(*word,sep=None,end=None,file=None,flush=True,fg_color=None,bg_color=None):
+def print(*word,sep=None,end=None,file=None,flush=True,fg_color=None,bg_color=None,style=None):
     foreground_dic = {
         "black": "30", "s_black": "90",
         "red": "31", "s_red": "91",
@@ -21,11 +21,20 @@ def print(*word,sep=None,end=None,file=None,flush=True,fg_color=None,bg_color=No
         "cyan": "46", "s_cyan": "106",
         "white": "47", "s_white": "107"
     }
+    style_dic = {"bold": "1", "underline": "4",}
     if flush:
-        if (fg_color in foreground_dic):
+        if type(fg_color) == type([]):
+            if len(fg_color)==3:
+                system("/bin/echo -ne \"\\e[38;2;"+str(fg_color[0])+";"+str(fg_color[1])+";"+str(fg_color[2])+"m\"")
+        elif (fg_color in foreground_dic):
             system("/bin/echo -ne \"\\e["+str(foreground_dic[fg_color])+"m\"")
-        if (bg_color in foreground_dic):
+        if type(bg_color) == type([]):
+            if len(bg_color)==3:
+                system("/bin/echo -ne \"\\e[48;2;"+str(bg_color[0])+";"+str(bg_color[1])+";"+str(bg_color[2])+"m\"")
+        elif (bg_color in foreground_dic):
             system("/bin/echo -ne \"\\e["+str(background_dic[bg_color])+"m\"")
+        if (style in style_dic):
+            system("/bin/echo -ne \"\\e["+str(style_dic[style])+"m\"")
         pythonprint(*word,sep=sep,end=end,file=file,flush=flush)
         system("/bin/echo -ne \"\\e[0m\"")
     else :
