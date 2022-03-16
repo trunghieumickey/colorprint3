@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="colorprint3",
-    version="1.1a",
+    version="1.2a",
     author="trunghieumickey",
     author_email="trunghieumickey@outlook.com.vn",
     description="Print color in Python 3",
@@ -16,8 +16,6 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-        "Operating System :: Microsoft :: Windows :: Windows 10",
-        "Operating System :: POSIX :: Linux",
     ],
     python_requires='>=3.8',
 )
