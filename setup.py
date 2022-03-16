@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.2a",
     author="trunghieumickey",
     author_email="trunghieumickey@outlook.com.vn",
-    description="Print color in Python 3",
+    description="A simple library to print with color and style on Python 3",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/trunghieumickey/colorprint3",
