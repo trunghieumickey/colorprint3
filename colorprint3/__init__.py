@@ -32,5 +32,5 @@ def print(*word, sep=None, end=None, file=None, flush=None, fg_color=None, bg_co
             formatlist.append(int(style_dic[i]))
     pythonprint(f'\033[',end="")
     pythonprint(*formatlist,sep=";",end="m")
-    pythonprint(*word,sep=sep,end=end,file=file,flush=flush)
-    pythonprint(f'\033'+"[0m",end="")
+    pythonprint(*word,sep=sep,end="",file=file,flush=flush)
+    pythonprint(f'\033'+"[0m",end=end)
