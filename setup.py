@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="colorprint3",
-    version="1.2a",
+    version="1.2a1",
     author="trunghieumickey",
     author_email="trunghieumickey@outlook.com.vn",
     description="A simple library to print with color and style on Python 3",

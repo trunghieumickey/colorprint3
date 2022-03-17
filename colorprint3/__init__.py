@@ -9,7 +9,9 @@ def print(*word, sep=None, end=None, file=None, flush=None, fg_color=None, bg_co
     formatlist = []
     if type(fg_color) == type([]):
         if len(fg_color) == 3:
-            formatlist.append(38, 2, fg_color)
+            formatlist.append(38)
+            formatlist.append(2)
+            formatlist.extend(fg_color)
     elif type(fg_color) == type(""):
         if (fg_color.split('_')[-1] in color_dic):
             if fg_color.split('_')[0] == 's':
@@ -18,7 +20,9 @@ def print(*word, sep=None, end=None, file=None, flush=None, fg_color=None, bg_co
                 formatlist.append(int("3"+color_dic[fg_color]))
     if type(bg_color) == type([]):
         if len(bg_color) == 3:
-            formatlist.append(48, 2, bg_color)
+            formatlist.append(48)
+            formatlist.append(2)
+            formatlist.extend(bg_color)
     elif type(bg_color) == type(""):
         if (bg_color.split('_')[-1] in color_dic):
             if bg_color.split('_')[0] == 's':
