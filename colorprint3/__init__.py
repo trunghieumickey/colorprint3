@@ -1,40 +1,30 @@
 from builtins import print as pythonprint
-color_dic = {
-    "black": "0", "red": "1", "green": "2", "yellow": "3", "blue": "4", "magenta": "5", "cyan": "6", "white": "7"
-}
-style_dic = {
-    "bold": "1", "faint": "2", "italic": "3", "underline": "4"
-}
 def print(*word, sep=None, end=None, file=None, flush=None, fg_color=None, bg_color=None, style=[]):
+    style_dic = {
+        "black": 0, "red": 1, "green": 2, "yellow": 3, "blue": 4, "magenta": 5, "cyan": 6, "white": 7,
+        "bold": 1, "faint": 2, "italic": 3, "underline": 4
+    }
     formatlist = []
-    if type(fg_color) == type([]):
-        if len(fg_color) == 3:
-            formatlist.append(38)
-            formatlist.append(2)
-            formatlist.extend(fg_color)
-    elif type(fg_color) == type(""):
-        if (fg_color.split('_')[-1] in color_dic):
-            if fg_color.split('_')[0] == 's':
-                formatlist.append(int("9"+color_dic[fg_color.split('_')[1]]))
-            else:
-                formatlist.append(int("3"+color_dic[fg_color]))
-    if type(bg_color) == type([]):
-        if len(bg_color) == 3:
-            formatlist.append(48)
-            formatlist.append(2)
-            formatlist.extend(bg_color)
-    elif type(bg_color) == type(""):
-        if (bg_color.split('_')[-1] in color_dic):
-            if bg_color.split('_')[0] == 's':
-                formatlist.append(int("10"+color_dic[bg_color.split('_')[1]]))
-            else:
-                formatlist.append(int("4"+color_dic[bg_color]))
+    clor = [fg_color, bg_color]
+    for i in range(len(clor)):
+        if not clor[i]:
+            continue
+        if type(clor[i]) == type([]):
+            if len(clor[i]) == 3:
+                formatlist.append(38+i*10)
+                formatlist.append(2)
+                formatlist.extend(clor[i])
+        else:
+            if (type(clor[i]) == type("")):
+                clor[i] = clor[i].split('_')
+                clor[i] = style_dic[clor[i][-1]]+(clor[i][0] == 's')*60
+            formatlist.append(30+clor[i]+i*10)
     if type(style) != type([]):
         style = [style]
     for i in style:
         if i in style_dic:
-            formatlist.append(int(style_dic[i]))
-    pythonprint(f'\033[',end="")
-    pythonprint(*formatlist,sep=";",end="m")
-    pythonprint(*word,sep=sep,end="",file=file,flush=flush)
-    pythonprint(f'\033'+"[0m",end=end)
+            formatlist.append(style_dic[i])
+    pythonprint(f'\033[', end="")
+    pythonprint(*formatlist, sep=";", end="m")
+    pythonprint(*word, sep=sep, end="", file=file, flush=flush)
+    pythonprint(f'\033'+"[0m", end=end)
