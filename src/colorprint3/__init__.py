@@ -24,7 +24,7 @@ def print(*word, sep=None, end=None, file=None, flush=None, fg_color=None, bg_co
     for i in style:
         if i in style_dic:
             formatlist.append(style_dic[i])
-    pythonprint(f'\033[', end="")
-    pythonprint(*formatlist, sep=";", end="m")
+    pythonprint(f'\033[', end="", file=file,)
+    pythonprint(*formatlist, sep=";", end="m", file=file)
     pythonprint(*word, sep=sep, end="", file=file, flush=flush)
-    pythonprint(f'\033'+"[0m", end=end)
+    pythonprint(f'\033'+"[0m", end=end, file=file)
