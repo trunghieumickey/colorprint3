@@ -1,0 +1,18 @@
+[project]
+name="colorprint3"
+version="1.3a0"
+authors = [
+  { name="trunghieumickey", email="trunghieumickey@outlook.com.vn" },
+]
+description = "A simple library to print with color and style on Python 3"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers=[
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/trunghieumickey/colorprint3"
+"Bug Tracker" = "https://github.com/trunghieumickey/colorprint3/issues"
